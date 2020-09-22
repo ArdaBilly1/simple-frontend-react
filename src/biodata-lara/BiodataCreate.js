@@ -10,7 +10,7 @@ class StudentCreate extends Component {
         this.state = {
             nama      : '',
             email     : '',
-            no_telp   : '',
+            no_hp   : '',
             pekerjaan : '',
             alert : null,
             errors: []
@@ -60,7 +60,7 @@ class StudentCreate extends Component {
         const biodata = {
           nama: this.state.nama,
           email: this.state.email,
-          no_telp: this.state.no_telp,
+          no_hp: this.state.no_hp,
           pekerjaan: this.state.pekerjaan
         }
         axios.post('http://127.0.0.1:8000/api/biodata/', biodata).then(response => { 
@@ -103,6 +103,7 @@ class StudentCreate extends Component {
                           name='nama'
                           value={this.state.nama}
                           onChange={this.handleFieldChange}
+                          required
                         />
                         {this.renderErrorFor('nama')}
                       </div>
@@ -119,28 +120,30 @@ class StudentCreate extends Component {
                         {this.renderErrorFor('email')}
                       </div>
                       <div className='form-group'>
-                        <label htmlFor='no_telp'>No.Telp</label>
+                        <label htmlFor='no_hp'>No.Telp</label>
                         <input
-                          id='no_telp'
+                          id='no_hp'
                           type='text'
-                          className={`form-control ${this.hasErrorFor('no_telp') ? 'is-invalid' : ''}`}
-                          name='no_telp'
-                          value={this.state.no_telp}
+                          className={`form-control ${this.hasErrorFor('no_hp') ? 'is-invalid' : ''}`}
+                          name='no_hp'
+                          value={this.state.no_hp}
                           onChange={this.handleFieldChange}
+                          required
                         />
-                        {this.renderErrorFor('no_telp')}
+                        {this.renderErrorFor('no_hp')}
                       </div>
 
                       <div className='form-group'>
                         <label htmlFor='pekerjaan'>Pekerjaan</label>
                         <input
-                          type = 'number'
+                          type = 'text'
                           id='pekerjaan'
                           className={`form-control ${this.hasErrorFor('pekerjaan') ? 'is-invalid' : ''}`}
                           name='pekerjaan'
                           rows='10'
                           value={this.state.pekerjaan}
                           onChange={this.handleFieldChange}
+                          required
                         />
                         {this.renderErrorFor('pekerjaan')}
                       </div>

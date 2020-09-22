@@ -32,7 +32,7 @@ import { Link } from 'react-router-dom'
                   <div className='card-header'>Nama Mahasiswa: {biodata.nama}</div>
                   <div className='card-body'>
                     <p>Email: {biodata.email}</p>
-                    <p>NO TELP : {biodata.no_telp}</p>
+                    <p>NO TELP : {biodata.no_hp}</p>
                     <p>PEKERJAAN: {biodata.pekerjaan}</p>
                   </div>
                   <div className='card-footer'>
