@@ -32,7 +32,7 @@ import SweetAlert from 'react-bootstrap-sweetalert';
  
         const biodataId = this.props.match.params.id
  
-        axios.get(`http://localhost:8000/api/getMhs/${biodataId}`).then(response => {
+        axios.get(`http://127.0.0.1:8000/api/biodata/${biodataId}`).then(response => {
           this.setState({
             id : response.data.id,
             nama: response.data.nama,
@@ -84,7 +84,7 @@ import SweetAlert from 'react-bootstrap-sweetalert';
  
         const biodataId = this.props.match.params.id
  
-        axios.post(`http://localhost:8000/api/update/${biodataId}`, biodata)
+        axios.put(`http://localhost:8000/api/biodata/${biodataId}`, biodata)
           .then(response => {
             // redirect to the homepage
             var msg = response.data.success;
@@ -147,7 +147,7 @@ import SweetAlert from 'react-bootstrap-sweetalert';
                         {this.renderErrorFor('email')}
                       </div>
                       <div className='form-group'>
-                        <label htmlFor='no_hp'>NIM</label>
+                        <label htmlFor='no_hp'>NO HP</label>
                         <input
                           id='no_hp'
                           type='text'
@@ -159,10 +159,10 @@ import SweetAlert from 'react-bootstrap-sweetalert';
                         {this.renderErrorFor('no_hp')}
                       </div>
                       <div className='form-group'>
-                        <label htmlFor='pekerjaan'>IPK</label>
+                        <label htmlFor='pekerjaan'>Pekerjaan</label>
                         <input
                           id='pekerjaan'
-                          type='number'
+                          type='text'
                           className={`form-control ${this.hasErrorFor('pekerjaan') ? 'is-invalid' : ''}`}
                           name='pekerjaan'
                           value={this.state.pekerjaan}

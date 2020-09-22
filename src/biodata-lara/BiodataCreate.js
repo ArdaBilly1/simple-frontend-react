@@ -8,10 +8,10 @@ class StudentCreate extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            nama  : '',
-            email : '',
-            nim   : '',
-            ipk   : '',
+            nama      : '',
+            email     : '',
+            no_telp   : '',
+            pekerjaan : '',
             alert : null,
             errors: []
         }
@@ -60,10 +60,10 @@ class StudentCreate extends Component {
         const biodata = {
           nama: this.state.nama,
           email: this.state.email,
-          nim: this.state.nim,
-          ipk: this.state.ipk
+          no_telp: this.state.no_telp,
+          pekerjaan: this.state.pekerjaan
         }
-        axios.post('http://localhost:8000/api/storeMhs', biodata).then(response => { 
+        axios.post('http://127.0.0.1:8000/api/biodata/', biodata).then(response => { 
             var msg = response.data.success;
             if(msg === true){
                 return this.goToHome();
@@ -119,30 +119,30 @@ class StudentCreate extends Component {
                         {this.renderErrorFor('email')}
                       </div>
                       <div className='form-group'>
-                        <label htmlFor='nim'>NIM</label>
+                        <label htmlFor='no_telp'>No.Telp</label>
                         <input
-                          id='nim'
+                          id='no_telp'
                           type='text'
-                          className={`form-control ${this.hasErrorFor('nim') ? 'is-invalid' : ''}`}
-                          name='nim'
-                          value={this.state.nim}
+                          className={`form-control ${this.hasErrorFor('no_telp') ? 'is-invalid' : ''}`}
+                          name='no_telp'
+                          value={this.state.no_telp}
                           onChange={this.handleFieldChange}
                         />
-                        {this.renderErrorFor('nim')}
+                        {this.renderErrorFor('no_telp')}
                       </div>
 
                       <div className='form-group'>
-                        <label htmlFor='ipk'>IPK</label>
+                        <label htmlFor='pekerjaan'>Pekerjaan</label>
                         <input
                           type = 'number'
-                          id='ipk'
-                          className={`form-control ${this.hasErrorFor('ipk') ? 'is-invalid' : ''}`}
-                          name='ipk'
+                          id='pekerjaan'
+                          className={`form-control ${this.hasErrorFor('pekerjaan') ? 'is-invalid' : ''}`}
+                          name='pekerjaan'
                           rows='10'
-                          value={this.state.ipk}
+                          value={this.state.pekerjaan}
                           onChange={this.handleFieldChange}
                         />
-                        {this.renderErrorFor('ipk')}
+                        {this.renderErrorFor('pekerjaan')}
                       </div>
                       <Link
                         className='btn btn-secondary'

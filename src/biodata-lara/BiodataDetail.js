@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom'
  
         const biodataId = this.props.match.params.id
  
-        axios.get(`http://localhost:8000/api/getMhs/${biodataId}`).then(response => {
+        axios.get(`http://127.0.0.1:8000/api/biodata/${biodataId}`).then(response => {
           this.setState({
             biodata: response.data
           })

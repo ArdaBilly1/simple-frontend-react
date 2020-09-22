@@ -25,7 +25,7 @@ class BiodataIndex extends Component {
     componentDidMount () {
 
 
-        axios.get('http://localhost:8000/api/all').then(response => {
+        axios.get('http://127.0.0.1:8000/api/all').then(response => {
             this.setState({
                 biodatas: response.data
             })
@@ -61,7 +61,7 @@ class BiodataIndex extends Component {
         });
     }
     deleteItem(id) {
-        axios.delete(`http://localhost:8000/api/delMhs/${id}`).then(response => {
+        axios.delete(`http://localhost:8000/api/biodata/${id}`).then(response => {
             var msg = response.data.success;
             if(msg === true){
                 this.hideAlert();
@@ -97,7 +97,7 @@ class BiodataIndex extends Component {
                 <div className='card'>
                   <div className='card-header'>Data Mahasiswa</div>
                   <div className='card-body'>
-                    <Link className='btn btn-primary btn-sm mb-3' to='/create'>
+                    <Link className='btn btn-primary btn-sm mb-3' to='/lara/create'>
                       Buat Data Mahasiswa Baru
                     </Link>
                     <div className="table-responsive">
@@ -106,9 +106,6 @@ class BiodataIndex extends Component {
                                 <tr>
                                     <th width="50" className="text-center">No</th>
                                     <th width="400" className="text-center">Nama</th>
-                                    {/* <th width="200" className="text-center">email</th> */}
-                                    {/* <th width="200" className="text-center">NIM</th> */}
-                                    {/* <th width="300" className="text-center">IPK</th> */}
                                     <th width="100" className="text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -117,9 +114,7 @@ class BiodataIndex extends Component {
                                 <tr key={i}>
                                     <td width="50" className="text-center">{i + 1}</td>
                                     <td>{biodata.nama}</td>
-                                    {/* <td>{biodata.email}</td> */}
-                                    {/* <td>{biodata.nim}</td> */}
-                                    {/* <td>{biodata.ipk}</td> */}
+                                   
                                     <td>
                                     <button
                                             className='badge badge-danger badge-pill'
